@@ -1,0 +1,23 @@
+.width300 {
+	width: 300px;
+}
+
+.panel {
+	width: 240px;
+}
+
+.bkmpanel {
+	float:left;
+	margin: 10px;
+}
+
+.floated {
+	width: 300px;
+	margin-left: 20px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+
+.floated button{
+	margin-left: 30px;
+}

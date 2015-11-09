@@ -1,0 +1,44 @@
+<div class="container">
+
+	<div class="width300">
+		<ul class="nav nav-tabs">
+			<li role="presentation" ng-class="{active: bookmarkActive}"><a
+				href="#/bookmark">Add a new Bookmark</a></li>
+			<li role="presentation" ng-class="{active: listActive}"><a
+				href="#/list">Bookmarks</a></li>
+		</ul>
+
+		<alert ng-repeat="message in messages" type="{{message.type}}"
+			close="closeAlert($index)"> {{message.msg}} </alert>
+
+		<h3>Categories</h3>
+		<div class="list-group">
+			<li class="list-group-item" ng-repeat="folder in folders" 
+				ng-click="getBookmarksInFolder(folder.name)"><span
+				class="badge">{{folder.count}}</span> {{ folder.name }}</li>
+		</div>
+
+		<h3 ng-show="bookmarks.length > 0">{{folder}}</h3>
+	</div>
+
+	<div ng-repeat="bookmark in bookmarks" class="panel panel-default bkmpanel">
+			<div class="panel-heading">
+				<strong>{{bookmark.name}}</strong>
+			</div>
+			<div class="panel-body">
+				<a href={{bookmark.url}}>{{bookmark.url}}</a>
+			</div>
+			<div class="floated">
+				<button ng-click="deleteBookmark(bookmark)" class="btn btn-danger btn-sm">Delete</button>
+				<button ng-click="editBookmark(bookmark)" class="btn btn-info btn-sm">Edit</button>
+			</div>
+
+
+		</div>
+
+
+
+</div>
+
+
+
