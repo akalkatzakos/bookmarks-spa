@@ -18,10 +18,18 @@
 	                  else 
 	                      $scope.add_bookmark_error = "A completely unexpected error occurred: " + err.code + " " + err.message;
 	            } else {
-	            	$scope.messages.push({
-						type : 'success',
-						msg : 'Bookmark created!'
-					});
+	            	if (bookmark.id) {
+	            		$scope.messages.push({
+							type : 'success',
+							msg : 'Bookmark updated!'
+						});	
+	            	} else {
+	            		$scope.messages.push({
+							type : 'success',
+							msg : 'Bookmark created!'
+						});
+	            	}
+	            	
 					$scope.bookmark = {};
 					$scope.add_bookmark_error = "";
 	            }
@@ -37,7 +45,10 @@
 		$scope.getFolders = function() {
 			BookmarkProvider.getFolders(function (err, folders) {
 	            if (err) {
-	            	alert(err.message);
+	            	$scope.messages.push({
+						type : 'danger',
+						msg : err.message
+					});
 	            } else {
 	            	$scope.folders = folders;
 	            }
@@ -51,7 +62,10 @@
 			if (id != null) {
 				BookmarkProvider.getBookmark(id, function (err, bookmark) {
 		            if (err) {
-		            	alert(err.message);
+		            	$scope.messages.push({
+							type : 'danger',
+							msg : err.message
+						});
 		            } else {
 		            	$scope.bookmark = bookmark;
 		            }
