@@ -11,7 +11,7 @@
 		<alert ng-repeat="message in messages" type="{{message.type}}"
 			close="closeAlert($index)"> {{message.msg}} </alert>
 
-		<h4>Categories</h4>
+		<h4>Folders</h4>
 		<div class="list-group">
 			<li class="list-group-item" ng-repeat="folder in folders"
 				ng-click="getBookmarksInFolder(folder.name)"><span
