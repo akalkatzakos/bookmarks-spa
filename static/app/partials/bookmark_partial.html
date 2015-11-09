@@ -3,46 +3,46 @@
 
 	<div class="width300">
 		<ul class="nav nav-tabs">
-			<li role="presentation" ng-class="{active: bookmarkActive}"><a
-				href="#/bookmark">Add a new Bookmark</a></li>
 			<li role="presentation" ng-class="{active: listActive}"><a
 				href="#/list">Bookmarks</a></li>
+			<li role="presentation" ng-class="{active: bookmarkActive}"><a
+				href="#/bookmark">Add a new Bookmark</a></li>
 		</ul>
-	
-	
+
+
 		<form class="form" ng-submit="addBookmark(bookmark)" novalidate>
 			<alert ng-repeat="message in messages" type="{{message.type}}"
 				close="closeAlert($index)"> {{message.msg}} </alert>
-	
+
 			<div class="alert alert-danger" ng-show="add_bookmark_error">
 				{{add_bookmark_error}}</div>
 			<div class="form-group">
 				<label>Name </label> <input type="text" ng-model="bookmark.name"
 					class="form-control" placeholder="Enter name for bookmark">
 			</div>
-	
+
 			<div class="form-group">
 				<label>URL</label> <input type="text" ng-model="bookmark.url"
 					class="form-control" placeholder="Enter URL">
 			</div>
-			
+
 			<div class="form-group">
 				<label>Folder </label> <input type="text" ng-model="bookmark.folder"
 					typeahead="folder.name for folder in folders | filter: $viewValue"
 					class="form-control" placeholder="Start typing for a folder">
 			</div>
-	
+
 			<div class="form-group">
 				<input type="submit" ng-hide="bookmark.id"
 					class="btn btn-default btn-lg" value="Add bookmark" /> <input
 					type="submit" ng-show="bookmark.id" class="btn btn-default btn-lg"
 					value="Update bookmark" />
-	
+
 			</div>
-	
-<!-- 			<pre>{{bookmark|json}}</pre> -->
-	
+
+			<pre>{{bookmark|json}}</pre>
+
 		</form>
-		</div>
-	
+	</div>
+
 </div>
