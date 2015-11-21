@@ -74,6 +74,12 @@
 			}
 		}
 		
+		
+		$scope.startsWith = function (actual, expected) {
+		    var lowerStr = (actual + "").toLowerCase();
+		    return lowerStr.indexOf(expected.toLowerCase()) === 0;
+		}
+		
 		getBookmarkIfIdExists();
 		
 		

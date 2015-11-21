@@ -28,7 +28,7 @@
 
 			<div class="form-group">
 				<label>Folder </label> <input type="text" ng-model="bookmark.folder"
-					typeahead="folder.name for folder in folders | filter: $viewValue"
+					typeahead="folder.name for folder in folders | filter: $viewValue: startsWith"
 					class="form-control" placeholder="Start typing for a folder">
 			</div>
 
