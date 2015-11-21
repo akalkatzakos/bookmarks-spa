@@ -32,6 +32,7 @@
 	            	
 					$scope.bookmark = {};
 					$scope.add_bookmark_error = "";
+					$scope.getFolders();
 	            }
 	        });
 			

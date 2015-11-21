@@ -7,21 +7,24 @@
 			<li role="presentation" ng-class="{active: bookmarkActive}"><a
 				href="#/bookmark">Add a new Bookmark</a></li>
 		</ul>
-
 		<alert ng-repeat="message in messages" type="{{message.type}}"
 			close="closeAlert($index)"> {{message.msg}} </alert>
-
-		<h4>Folders</h4>
-		<div class="list-group">
-			<li class="list-group-item" ng-repeat="folder in folders"
-				ng-click="getBookmarksInFolder(folder.name)"><span
-				class="badge">{{folder.count}}</span> {{ folder.name }}</li>
-		</div>
-
-		<h4 ng-show="bookmarks.length > 0">
-			Bookmarks in [<span style="color: green">{{folder}}</span>]
-		</h4>
 	</div>
+
+
+	<h4>Folders</h4>
+
+	<div class="btn-group" role="group">
+		<button type="button" ng-repeat="folder in folders"
+			ng-click="getBookmarksInFolder(folder.name)" class="btn btn-default">
+			{{ folder.name }} <span class="badge">{{folder.count}}</span>
+		</button>
+	</div>
+
+	<h4 class="bkm-header" ng-show="bookmarks.length > 0">
+		Bookmarks in [<span style="color: green">{{folder}}</span>]
+	</h4>
+	<!-- 	</div> -->
 
 	<div ng-repeat="bookmark in bookmarks"
 		class="panel panel-default bkmpanel">
