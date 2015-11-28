@@ -19,7 +19,6 @@
 
 		$scope.deleteBookmark = function(bookmark) {
 			var confirm = $window.confirm('Are you sure you want to delete bookmark [' + bookmark.name + '] ?');
-
 		    if (confirm) {
 		    	BookmarkProvider.deleteBookmark(bookmark, function (err, folders) {
 		            if (err) {

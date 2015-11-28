@@ -29,21 +29,20 @@ public class BookmarkController {
 	private BookmarkRepository bookmarkRepository;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<Iterable<Bookmark>> getAllPolls() {
+	public ResponseEntity<Iterable<Bookmark>> getAllBookmarks() {
 		Iterable<Bookmark> all = bookmarkRepository.findAll();
 		return new ResponseEntity<>(all, HttpStatus.OK);
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<?> createBookmark(@RequestBody Bookmark bookmar) {
-
 		Bookmark saved = bookmarkRepository.save(bookmar);
 
 		// Set the location header for the newly created resource
 		HttpHeaders responseHeaders = new HttpHeaders();
-		URI newPollUri = ServletUriComponentsBuilder.fromCurrentRequest()
+		URI newBkUri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(saved.getId()).toUri();
-		responseHeaders.setLocation(newPollUri);
+		responseHeaders.setLocation(newBkUri);
 
 		return new ResponseEntity<>(saved, responseHeaders, HttpStatus.CREATED);
 	}

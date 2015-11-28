@@ -11,11 +11,10 @@
 			close="closeAlert($index)"> {{message.msg}} </alert>
 	</div>
 
-
 	<h4>Folders</h4>
 
 	<div class="btn-group" role="group">
-		<button type="button" ng-repeat="folder in folders"
+		<button type="button" ng-repeat="folder in folders" ng-class="{active: folder.name==folder"
 			ng-click="getBookmarksInFolder(folder.name)" class="btn btn-default">
 			{{ folder.name }} <span class="badge">{{folder.count}}</span>
 		</button>
@@ -35,8 +34,7 @@
 			<a href={{bookmark.url}}>{{bookmark.url}}</a>
 		</div>
 		<div class="floated">
-			<button ng-click="deleteBookmark(bookmark)"
-				class="btn btn-danger btn-sm">Delete</button>
+			<button ng-click="deleteBookmark(bookmark)" class="btn btn-danger btn-sm">Delete</button>
 			<button ng-click="editBookmark(bookmark)" class="btn btn-info btn-sm">Edit</button>
 		</div>
 
