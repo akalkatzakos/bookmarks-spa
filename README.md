@@ -1,1 +1,1 @@
-# bookmarks-spa
+**Angular based SPA with Spring Boot**
